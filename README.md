@@ -17,21 +17,29 @@ For Linux used **UFW (Uncomplicated Firewall)** as the firewall management tool.
 
 ## Default rule setup
 - For fire wall Status to show results we need to first set up basic system firewall rules.
+  
   `sudo ufw status`
+  
   `sudo ufw default deny incoming`
+  
   `sudo ufw default allow outgoing`
+  
 - If web servers hosted locally or public are not working just we could disabe the ufw completely.
+  
   `sudo systemctl status ufw`
+  
   `sudo systemctl stop ufw`
 
 ## Setting Up some common ports
 - PORTS : http-80, https-443, ssh-22, ftp-20/21
+  
   `sudo ufw ssh` `sudo ufw https` `sudo ufw http` `sudo allow ftp`
 
 ## IMPORTANT: BEFORE RESETTING RULES  
 Always remember to *disable* UFW so that you still have access to web servers, SSH, or Telnet services you are using.  
 If you mistakenly set a rule that locks you out, this can be solved by disabling UFW.  
 Even if you are locked out while using **Linode** *(it has its own command-line interface)*, you can simply reset the firewall using it.
+
 `sudo ufw reset`
 
 ## 2.Check UFW status
@@ -53,9 +61,11 @@ Even if you are locked out while using **Linode** *(it has its own command-line 
 
 ## 6. Remove the Test Block Rule to Restore Original State
 `sudo ufw status numbered` 
-- [ 1] 23/tcp DENY Anywhere
-- [ 2] 22/tcp ALLOW Anywhere
-  `sudo ufw delete 1`
+
+- [ 1] 23/tcp   DENY Anywhere
+- [ 2] 22/tcp   ALLOW Anywhere
+  
+`sudo ufw delete 1`
 
 ## How Firewall Filters Traffic
 - A firewall works by applying a set of rules to control network traffic.
@@ -65,11 +75,17 @@ Even if you are locked out while using **Linode** *(it has its own command-line 
 
 ## Extra Learned
 - We can set rule to a perticular connection
+  
   `sudo ufw allow form 192.168.56.103`
+  
 - Also do the same to a perticular port.
+  
   `sudo ufw allow form 192.168.56.103 to any port 22`
+  
 - We can also set rule to an entire subnet access.
+  
   `sudo ufw allow form 192.168.56.0/24`
+  
 - We can also use the same to deny also.
 - Learned to setup telnet local host and also on remote.
 - Learned to set up remote access SSH and used toget ipaddrss of guest-1 to guest-2.
