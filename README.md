@@ -1,4 +1,4 @@
-Task 4 – # Firewall Configuration and Traffic Filtering
+# Task 4 – Firewall Configuration and Traffic Filtering
 
 ## 1. Open Firewall Configuration Tool
 For Linux used **UFW (Uncomplicated Firewall)** as the firewall management tool.
